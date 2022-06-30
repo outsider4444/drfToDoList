@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block content %}
+
+    Привет, {{ user }}
+
+    <form method="post">
+        {% csrf_token %}
+        <input type="text" name="task">
+        <button>Добавить</button>
+    </form>
+
+    {% for task in tasks %}
+        {{ task.title }} / {{ task.completed }} <input type="radio"> <br>
+    {% endfor %}
+
+
+{% endblock %}

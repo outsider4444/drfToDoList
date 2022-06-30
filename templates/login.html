@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <!-- partial:index.partial.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <div id="login-form-wrap">
+        <h2>Авторизация</h2>
+        <form id="login-form" method="post">
+            {% csrf_token %}
+            <p>
+                <input type="text" id="username" name="username" placeholder="Введите логин" required><i
+                    class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <input type="password" id="password" name="password" placeholder="Введите пароль" required><i
+                    class="validation"><span></span><span></span></i>
+            </p>
+            <p>
+                <input type="submit" id="login" value="Войти">
+            </p>
+        </form>
+        <div id="create-account-wrap">
+            <p>У вас нет аккаунта? <a href="{% url 'registerPage' %}">Создать аккаунт</a>
+            <p>
+        </div><!--create-account-wrap-->
+    </div><!--login-form-wrap-->
+    <!-- partial -->
+
+
+{% endblock %}

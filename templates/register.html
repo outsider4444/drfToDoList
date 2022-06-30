@@ -1,0 +1,59 @@
+{% extends 'main.html' %}
+{% block content %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+    <!-- partial:index.partial.html -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <div id="login-form-wrap">
+        <h2>Регистрация</h2>
+    {{ error }}
+        <form id="login-form" method="post">
+            {% csrf_token %}
+            <p>
+                {{ form.username }}
+            </p>
+            <p>
+                {{ form.password1 }}
+            </p>
+
+            <p>
+                {{ form.password2 }}
+            </p>
+            <script>
+                var username = document.getElementById('id_username');
+                {#username.className = "validation";#}
+                username.placeholder = 'Введите логин';
+                username.required = true;
+
+
+                var password1 = document.getElementById('id_password1');
+                password1.placeholder = 'Введите пароль';
+                password1.required = true;
+                {#password1.className = "validation";#}
+                {#password1.value = '';#}
+                {#password1.placeholder = 'Введите пароль';#}
+
+
+                var password2 = document.getElementById('id_password2');
+                password2.placeholder = 'Повторите пароль';
+                password2.required = true;
+                password2.ty
+                {#password2.className = "validation";#}
+                {#password2.value = '';#}
+                {#password2.placeholder = 'Введите пароль';#}
+            </script>
+
+            <p>
+                <input type="submit" id="login" value="Зарегистрироваться">
+            </p>
+        </form>
+        <div id="create-account-wrap">
+            <p>У вас есть аккаунт? <a href="{% url 'loginPage' %}">Войти</a>
+            <p>
+        </div><!--create-account-wrap-->
+    </div><!--login-form-wrap-->
+    <!-- partial -->
+
+{% endblock %}
